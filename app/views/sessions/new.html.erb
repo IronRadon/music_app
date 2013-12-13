@@ -1,0 +1,16 @@
+<% unless flash[:errors].nil?%>
+<ul>
+<%flash[:errors].each do |error_msg|%>
+	<li><%= "#{error_msg}"%></li>
+<%end%>
+</ul>
+<%end%>
+<h1>LOG IN</h1>
+<form action = "<%=session_url%>" method = "POST">
+	<label for= "user_email">Email:</label>
+	<input type = "text" id = "user_email" name = "user[email]">
+	<label for= "user_password">Password:</label>
+	<input type = "password" id = "user_password" name = "user[password]">
+
+	<input type = "submit" value = "Login">
+</form>
