@@ -17,6 +17,7 @@ class CreateAlbumsandTracksTable < ActiveRecord::Migration
   		t.integer :album_id
   		t.integer :number
   		t.boolean :bonus
+      t.text :lyrics
 
   		t.timestamps
   	end

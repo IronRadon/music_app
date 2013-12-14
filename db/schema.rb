@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20131213233702) do
     t.integer  "album_id"
     t.integer  "number"
     t.boolean  "bonus"
+    t.text     "lyrics"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
