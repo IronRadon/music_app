@@ -1,12 +1,19 @@
 class User < ActiveRecord::Base
 	attr_accessible :email, :password, :session_token
 	before_validation :reset_session_token, :on => :create
+	validates :password, :length => {:minimum => 6}, :on => :create
 	validates :email, :password_digest, :session_token, :presence => true
 	validates :email, :session_token, :uniqueness => true
 
+
 	def password=(password)
+		@password = password
 		password_digest = BCrypt::Password.create(password)
 		self.password_digest = password_digest 
+	end
+
+	def password
+		@password
 	end
 
 	def is_password?(password)
@@ -17,9 +24,13 @@ class User < ActiveRecord::Base
 		SecureRandom::urlsafe_base64
 	end
 
-	def reset_session_token!
+	def reset_session_token
 		session_token = User.generate_session_token
 		self.session_token = session_token
+	end
+
+	def reset_session_token!
+		reset_session_token
 		self.save!
 	end
 
