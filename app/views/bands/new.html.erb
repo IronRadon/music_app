@@ -1,0 +1,14 @@
+<% unless flash[:errors].nil? %>
+<ul>
+<% flash[:errors].each do |error_msg| %>
+<li><%= "#{error_msg}"%></li>
+<%end%>
+</ul>
+<%end%>
+<h1>Add a Band</h1>
+<form action = "<%=bands_url%>" method = "POST">
+<label for = "band_name">Band Name:</label>
+<input type "text" id = "band_name" name = "band[name]">
+
+<input type = "Submit" value = "Add your Band">
+</form>

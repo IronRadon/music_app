@@ -1,0 +1,6 @@
+<h1><%= "#{@band.name}"%></h1>
+Welcome to our fanpage!
+
+<%= button_to("Delete us!", band_url, :method => :delete)%>
+<br>
+<%= link_to("Back to the Bands Listing", bands_url)%>
